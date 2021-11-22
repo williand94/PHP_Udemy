@@ -5,11 +5,13 @@
 
         //Atributos o Propiedades
         public $color;
-        public $marca;
-        public $modelo;
         public $velocidad;
         public $caballaje;
         public $plazas;
+
+        protected $marca;
+        
+        private $modelo;
 
 
         //Constructor 
@@ -26,17 +28,15 @@
 
 
 
-
-
         //Métodos : Acciones de los objetos
         public function getColor()
         {
            return $this->color;
         }
 
-        public function setColor($color)
+        public function setMarca($marca)
         {
-            return $this->color = $color;
+            return $this->color = $marca;
         }
 
         public function acelerar()
@@ -52,5 +52,20 @@
         public function getVelocidad()
         {
             return $this->velocidad;
+        }
+
+        public function mostrarInformacion(Coche $miObjeto)
+        {
+            if (is_object($miObjeto)) {
+                $informacion  = "<h1>Información del Coche</h1>";
+                $informacion .= "Color: ". $miObjeto->color;  
+                $informacion .= "<br>Modelo: ". $miObjeto->modelo;  
+                $informacion .= "<br>Velocidad: ". $miObjeto->velocidad;
+            
+            }else {
+                $informacion = "Tu dato es $miObjeto";
+            }
+
+            return $informacion;
         }
     }
