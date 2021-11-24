@@ -20,12 +20,16 @@ class Persona{
 
             if ($prefix_metodo == 'get') {
                 $nombre_metodo = substr(strtolower($name),3);
-            
-                return $this->$nombre_metodo;
+                
+                if (!isset($this->$nombre_metodo)) {
+
+                    return "El método  no existe";
+                }
             }
             return $nombre_metodo;
         }
     }
 
     $persona = new Persona("Willian", 27 , "Tura");
-    echo $persona->getEdad();
+    echo $persona->getEdad()."<br>";
+    echo $persona->getGirl()."<br>";
