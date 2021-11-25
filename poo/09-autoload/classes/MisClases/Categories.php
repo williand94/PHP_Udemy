@@ -1,5 +1,6 @@
 <?php
 
+namespace MisClases;
 
     class Categories{
         public $name;
